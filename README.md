@@ -4,7 +4,7 @@ Tray app that runs selected files. May be useful to switch environment variables
 
 ## Usage
 
-`java -jar H:\environmentSwitcher.jar profile1_title profile1_bat profile2_title profile2_bat`
+`java -jar app.jar profile1_title profile1_bat profile2_title profile2_bat`
 
 ## Windows usage
 See `/example` folder for an example.
