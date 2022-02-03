@@ -37,6 +37,13 @@ public class Switcher {
             return item;
         }).collect(Collectors.toList());
 
+        MenuItem exit = new MenuItem("Exit");
+        exit.addActionListener(e -> {
+            System.exit(0);
+        });
+
+        popup.add(exit);
+
         trayIcon.setPopupMenu(popup);
 
         if (!profiles.isEmpty()) {
@@ -53,6 +60,7 @@ public class Switcher {
         try {
             ProcessBuilder pb = new ProcessBuilder("cmd", "/c", profile.script);
             Process p = pb.start();
+            trayIcon.displayMessage(profile.title, "Activated " + profile.title + " profile", TrayIcon.MessageType.INFO);
         } catch (IOException e) {
             trayIcon.displayMessage(profile.title, e.getLocalizedMessage(), TrayIcon.MessageType.ERROR);
         }
